@@ -1,7 +1,7 @@
 import Initial from '../pages/initial';
 import QuestionsPage from '../pages/questions';
 import QuestionPage from '../pages/question';
-import { Paths } from '../types';
+import { Paths } from './types';
 
 export default [
   { path: '/questions', component: QuestionsPage },
