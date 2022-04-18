@@ -1,0 +1,69 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Some problem with reactjs",
+      "question": "There are some really nasty problem with traditional state managment.",
+      "createdAt": "2001-4-3",
+      "updatedAt": "2001-4-3"
+    },
+    {
+      "id": 2,
+      "topic": "Some problem with reactjs",
+      "description": "There are some really nasty problem with traditional state managment.",
+      "createdAt": "2001-4-3",
+      "updatedAt": "2001-4-3"
+    },
+    {
+      "id": 3,
+      "topic": "Some problem with reactjs",
+      "description": "There are some really nasty problem with traditional state managment.",
+      "createdAt": "2001-4-3",
+      "updatedAt": "2001-4-3"
+    },
+    {
+      "id": 4,
+      "topic": "Some problem with reactjs",
+      "description": "There are some really nasty problem with traditional state managment.",
+      "createdAt": "2001-4-3",
+      "updatedAt": "2001-4-3"
+    },
+    {
+      "id": 5,
+      "topic": "Some problem with reactjs",
+      "description": "There are some really nasty problem with traditional state managment.",
+      "createdAt": "2001-4-3",
+      "updatedAt": "2001-4-3"
+    }
+  ],
+  "comments": [
+    {
+      "questionId": 1,
+      "comments": [
+        {
+          "id": 1,
+          "username": "Mohammad",
+          "comment": "Great question i agree with you",
+          "likes": 2,
+          "dislikes": 1,
+          "createdAt": "2001-4-3",
+          "updatedAt": "2001-4-3"
+        }
+      ]
+    },
+    {
+      "questionId": 2,
+      "comments": [
+        {
+          "id": 1,
+          "username": "Mohammad",
+          "comment": "Great question i agree with you",
+          "likes": 2,
+          "dislikes": 1,
+          "createdAt": "2001-4-3",
+          "updatedAt": "2001-4-3"
+        }
+      ]
+    }
+  ]
+}
