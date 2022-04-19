@@ -47,7 +47,7 @@ const QuestionModal = () => {
                   onChange(Forms.CREATE_NEW_QUESTION, Inputs.TOPIC, event.target.value);
                 }}
               />
-              <p className="text-red-500 text-xs italic"></p>
+              <p className="text-red-500 text-xs italic">{form[Inputs.TOPIC].error}</p>
             </div>
             <div className="mb-6 text-right" dir="rtl">
               <label dir="rtl" className="text-right text-xs font-bold mb-2" htmlFor="question">
@@ -62,7 +62,7 @@ const QuestionModal = () => {
                   onChange(Forms.CREATE_NEW_QUESTION, Inputs.QUESTION, event.target.value);
                 }}
               ></textarea>
-              <p className="text-red-500 text-xs italic"></p>
+              <p className="text-red-500 text-xs italic">{form[Inputs.QUESTION].error}</p>
             </div>
 
             <div>

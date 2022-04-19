@@ -3,6 +3,7 @@ import { form as createNewComment } from '../../forms/create-new-comment';
 import { form as createNewQuestion } from '../../forms/create-new-quesion';
 import { useAction } from '../../hooks/use-actions';
 import Answers from './answers';
+import CreateComment from './create-comment';
 import Question from './question';
 
 const Index: FC = () => {
@@ -16,6 +17,7 @@ const Index: FC = () => {
     <>
       <Question />
       <Answers />
+      <CreateComment />
     </>
   );
 };

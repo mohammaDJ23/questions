@@ -2,6 +2,7 @@ export interface Input {
   [key: string]: {
     value: string;
     error: string;
+    isValid: boolean;
   };
 }
 

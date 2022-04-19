@@ -9,7 +9,7 @@ const initialState: State = {
 
 function onChange(state: State, action: OnChange) {
   const { form, input, value } = action.payload;
-  const { error } = inputValidation(form, input, value);
+  const { error, isValid } = inputValidation(form, input, value);
 
   const newState = {
     ...state,
@@ -25,6 +25,7 @@ function onChange(state: State, action: OnChange) {
 
           value,
           error,
+          isValid,
         },
       },
     },
