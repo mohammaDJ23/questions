@@ -1,9 +1,10 @@
 import { Dispatch } from 'redux';
+import { Form } from '../../reducers/forms/types';
 import { RootState } from '../../store';
 import { RootActions } from '../root-actions';
 import { ActionTypes } from './types';
 
-export function onSubmit(form: string) {
+export function submit(form: string) {
   return {
     type: ActionTypes.ON_SUBMIT,
     payload: {
@@ -12,7 +13,7 @@ export function onSubmit(form: string) {
   };
 }
 
-export function onChange(form: string, input: string, value: string) {
+export function onChange(form: string, input: string, value: unknown) {
   return {
     type: ActionTypes.ON_CHANGE,
     payload: {
@@ -23,6 +24,15 @@ export function onChange(form: string, input: string, value: string) {
   };
 }
 
-export function submit(form: string) {
+export function setForms(forms: Form[]) {
+  return {
+    type: ActionTypes.SET_FORMS,
+    payload: {
+      forms,
+    },
+  };
+}
+
+export function onSubmit(form: string) {
   return function (dispatch: Dispatch<RootActions>, state: () => RootState) {};
 }

@@ -8,10 +8,23 @@
 }
 
 html,
-body {
+body,
+.root-container,
+#root {
   margin: 0;
   padding: 0;
   background-color: var(--light-gray-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
 }
 
 #root {
@@ -23,9 +36,17 @@ body {
   box-sizing: border-box;
 }
 
+.bg-light-gray {
+  background-color: var(--light-gray-background);
+}
+
 .primary-btn {
   background-color: var(--primary-default);
   color: white;
+}
+
+.primary-btn:disabled {
+  background-color: rgb(170, 168, 168);
 }
 
 .secondary-btn {
@@ -42,4 +63,27 @@ ul {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+
+.ant-modal-close {
+  display: none;
+}
+
+.ant-modal-content .ant-modal-body {
+  padding: 15px 10px;
+  background: var(--light-gray-background);
+}
+
+.ant-modal-footer {
+  display: none;
+}
+
+.ant-modal-content .ant-modal-header {
+  padding: 0;
+  border: none;
+}
+
+.ant-modal {
+  overflow: hidden;
+  border-radius: 8px;
 }

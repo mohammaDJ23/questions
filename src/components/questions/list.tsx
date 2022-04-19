@@ -44,12 +44,15 @@ const List: FC = () => {
           updatedAt: '2001-4-3',
         },
       ].map((question, i) => (
-        <li key={question.id} className="w-full mb-5 rounded-xl overflow-hidden border-solid border-2 border-gray-100">
-          <div className="bg-white h-10 flex justify-between items-center p-3 rounded-md border-b-solid border-b-2 border-b-gray-100">
+        <li
+          key={question.id}
+          className="w-full mb-5 rounded-xl overflow-hidden border-solid border-2 border-gray-100 shadow-[0px_3px_8px_-1px_rgba(50,50,71,0.05),_0px_0px_1px_rgba(12,26,75,0.24)]"
+        >
+          <div className="bg-white h-12 flex justify-between items-center p-3 rounded-md border-b-solid border-b-2 border-b-gray-100">
             <div className="flex justify-center items-center">
               <div className="w-16 flex justify-start items-center">
                 <div className="w-5">
-                  <p className="text-xs text-slate-400">20</p>
+                  <span className="text-xs text-slate-400">20</span>
                 </div>
 
                 <div>
@@ -58,17 +61,17 @@ const List: FC = () => {
               </div>
 
               <div className="w-24">
-                <p>
+                <span>
                   <span className="text-xs font-bold">{Moment.format(question.createdAt, 'l')}</span>
                   <span className="text-xs text-slate-400"> :تاریخ</span>
-                </p>
+                </span>
               </div>
 
               <div>
-                <p>
+                <span>
                   <span className="text-xs font-bold">{Moment.format(question.createdAt, 'LT')}</span>
                   <span className="text-xs text-slate-400"> :ساعت</span>
-                </p>
+                </span>
               </div>
             </div>
 
@@ -80,7 +83,7 @@ const List: FC = () => {
             </div>
           </div>
 
-          <div className="bg-white p-4 bg-gray-50">
+          <div className="p-4 bg-gray-50">
             <div>
               <p className="text-right text-sm">{question.question}</p>
             </div>

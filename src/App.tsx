@@ -3,6 +3,8 @@ import { createBrowserHistory } from 'history';
 import Providers from './providers';
 import paths from './routes';
 import './styles/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 
 const history = createBrowserHistory();
 
