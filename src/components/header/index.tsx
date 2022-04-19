@@ -1,8 +1,11 @@
 import { createPortal } from 'react-dom';
+import { useHistory } from 'react-router-dom';
 import { FC } from 'react';
 import { useAction } from '../../hooks/use-actions';
+import { Routes } from '../../routes/types';
 
 const Header: FC = () => {
+  const history = useHistory();
   const { showModal } = useAction();
 
   return createPortal(
@@ -38,7 +41,9 @@ const Header: FC = () => {
             </div>
           </nav>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <h3 className="text-xl font-bold">لیست سوالات</h3>
+            <h3 className="text-xl font-bold">
+              {history.location.pathname === Routes.QUESTIONS ? 'لیست سوالات' : 'جزییات سوال'}
+            </h3>
           </div>
         </div>
       </div>
