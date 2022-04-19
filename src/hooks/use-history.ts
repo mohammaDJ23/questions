@@ -11,5 +11,5 @@ export function useHistory() {
     history.push(path);
   };
 
-  return { push };
+  return { push, history };
 }

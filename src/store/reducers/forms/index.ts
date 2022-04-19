@@ -42,12 +42,14 @@ function onSubmit(state: State, action: OnSubmit) {
 }
 
 function setForms(state: State, action: SetForms) {
+  let newState = { ...state };
+
   for (const form of action.payload.forms) {
-    Object.assign(state.forms, form);
-    Object.assign(state.formValidation, { [Object.keys(form)[0]]: false });
+    Object.assign(newState.forms, form);
+    Object.assign(newState.formValidation, { [Object.keys(form)[0]]: false });
   }
 
-  return state;
+  return newState;
 }
 
 export function formReducer(state: State = initialState, action: Actions) {

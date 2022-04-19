@@ -1,11 +1,11 @@
 import { createPortal } from 'react-dom';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from '../../hooks/use-history';
 import { FC } from 'react';
 import { useAction } from '../../hooks/use-actions';
 import { Routes } from '../../routes/types';
 
 const Header: FC = () => {
-  const history = useHistory();
+  const { history, push } = useHistory();
   const { showModal } = useAction();
 
   return createPortal(
@@ -19,7 +19,7 @@ const Header: FC = () => {
                   <img src="/svgs/Arrow-down.svg" alt="arrow-down" />
                 </div>
 
-                <div className="flex justify-start items-center">
+                <div className="flex justify-start items-center cursor-pointer" onClick={() => push('/questions')}>
                   <div className="flex-none w-28">
                     <span className="text-sm">مرضیه ابراهیمی</span>
                   </div>
