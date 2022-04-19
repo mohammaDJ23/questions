@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light-gray-background: #f7f8f9;
+  --primary-default: #199da3;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-gray-background);
+}
+
+#root {
+  margin-top: 94px;
+  padding: 3% 5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.primary-btn {
+  background-color: var(--primary-default);
+  color: white;
+}
+
+.secondary-btn {
+  border: 1px solid var(--primary-default);
+  color: var(--primary-default);
+}
+
+.only-text-btn {
+  color: var(--primary-default);
+}
