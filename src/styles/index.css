@@ -29,10 +29,17 @@ body {
 }
 
 .secondary-btn {
-  border: 1px solid var(--primary-default);
+  border: 2px solid var(--primary-default);
   color: var(--primary-default);
+  border-radius: 5px;
 }
 
 .only-text-btn {
   color: var(--primary-default);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }

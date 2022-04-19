@@ -1,21 +1,24 @@
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Router, Redirect, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Providers from './providers';
 import paths from './routes';
 import './styles/index.css';
 
+const history = createBrowserHistory();
+
 function App() {
   return (
-    <Providers>
-      <BrowserRouter>
+    <Router history={history}>
+      <Providers>
         <Switch>
-          {paths.map(({ path, component }) => (
-            <Route path={path} component={component} />
+          {paths.map(({ path, component }, i) => (
+            <Route key={i} exact path={path} component={component} />
           ))}
 
           <Redirect to={'/questions'} />
         </Switch>
-      </BrowserRouter>
-    </Providers>
+      </Providers>
+    </Router>
   );
 }
 

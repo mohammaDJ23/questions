@@ -24,7 +24,7 @@ const Header: FC = () => {
                 </div>
 
                 <div>
-                  <button className="primary-btn text-white font-bold py-1 px-4 rounded">سوال جدید</button>
+                  <button className="primary-btn text-white font-bold py-1.5 px-4 rounded">سوال جدید</button>
                 </div>
               </div>
             </div>
