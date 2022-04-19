@@ -6,3 +6,9 @@ interface Path {
 }
 
 export type Paths = Path[];
+
+export enum Routes {
+  QUESTIONS = '/questions',
+  QUESTION = '/question/:id',
+  INITIAL = '/',
+}
