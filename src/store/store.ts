@@ -1,10 +1,9 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { questionDetailsReducer, listsReducer, formReducer, modalReducer, loadingReducer } from './reducers';
+import { listsReducer, formReducer, modalReducer, loadingReducer } from './reducers';
 
 const reducers = combineReducers({
   lists: listsReducer,
-  questionDetails: questionDetailsReducer,
   forms: formReducer,
   modal: modalReducer,
   loading: loadingReducer,
