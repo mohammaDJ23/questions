@@ -1,30 +1,50 @@
 import { Dispatch } from 'redux';
+import { matchPath } from 'react-router';
 import { RootActions } from '../root-actions';
-import { ActionTypes } from './types';
+import { ActionTypes, QuestionParams } from './types';
 import { loading, error, success } from '../loading';
 import { Rest } from '../../../services/rest';
 import { listsApi } from '../../../apis/lists';
+import { Lists } from '../../reducers/lists/types';
+import { Routes } from '../../../routes/types';
+import { history } from '../../../App';
 
-export function getLists(listType: string, data: {}[]) {
+export function getLists(listName: string, data: {}[]) {
   return {
     type: ActionTypes.GET_LIST,
-    payload: { listType, data },
+    payload: { listName, data },
   };
 }
 
-function requestProcess(listType: string): Promise<{}[]> {
-  return Rest.req<{}[]>(listsApi[listType]());
+export function cleanList(listName: string) {
+  return {
+    type: ActionTypes.CLEAN_LIST,
+    payload: { listName },
+  };
 }
 
-export function getList(listType: string) {
+function additionsInfo(listName: string) {
+  switch (listName) {
+    case Lists.COMMENTS:
+      const urlInfo = matchPath<QuestionParams>(history.location.pathname, { path: Routes.QUESTION });
+      return { questionId: urlInfo?.params?.id };
+  }
+}
+
+function requestProcess(listName: string): Promise<{}[]> {
+  let data = additionsInfo(listName);
+  return Rest.req<{}[]>(listsApi[listName](data));
+}
+
+export function getList(listName: string) {
   return async function (dispatch: Dispatch<RootActions>) {
     try {
-      dispatch(loading(listType));
-      const data = await requestProcess(listType);
-      dispatch(success(listType));
-      dispatch(getLists(listType, data));
+      dispatch(loading(listName));
+      const data = await requestProcess(listName);
+      dispatch(success(listName));
+      dispatch(getLists(listName, data));
     } catch (err) {
-      dispatch(error(listType, (err as any).message));
+      dispatch(error(listName, (err as any).message));
     }
   };
 }

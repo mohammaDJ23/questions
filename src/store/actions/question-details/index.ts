@@ -11,9 +11,3 @@ export function disLike() {
     type: ActionTypes.DISLIKE,
   };
 }
-
-export function getQuestion() {
-  return {
-    type: ActionTypes.GET_QUESTION,
-  };
-}

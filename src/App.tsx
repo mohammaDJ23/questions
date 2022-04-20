@@ -7,7 +7,7 @@ import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 
 function App() {
   return (

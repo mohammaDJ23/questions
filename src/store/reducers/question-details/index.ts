@@ -1,9 +1,8 @@
-import { Actions, ActionTypes, DisLike, GetQuestion, Like } from '../../actions/question-details/types';
+import { Actions, ActionTypes, DisLike, Like } from '../../actions/question-details/types';
 import { State } from './types';
 
 const initialState: State = {
   question: {},
-  comments: [],
 };
 
 function like(state: State, action: Like) {
@@ -18,12 +17,6 @@ function disLike(state: State, action: DisLike) {
   };
 }
 
-function getQuestion(state: State, action: GetQuestion) {
-  return {
-    ...state,
-  };
-}
-
 export function questionDetailsReducer(state: State = initialState, actions: Actions) {
   switch (actions.type) {
     case ActionTypes.LIKE:
@@ -31,9 +24,6 @@ export function questionDetailsReducer(state: State = initialState, actions: Act
 
     case ActionTypes.DISLIKE:
       return disLike(state, actions);
-
-    case ActionTypes.GET_QUESTION:
-      return getQuestion(state, actions);
 
     default:
       return state;

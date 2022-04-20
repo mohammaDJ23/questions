@@ -1,43 +1,19 @@
 import React, { FC } from 'react';
 import QuestionBox from '../question-box';
 import { Moment } from '../../utility/moment';
+import { useState } from '../../hooks/use-state';
+import { Comment, Lists } from '../../store/reducers/lists/types';
 
 const Answers: FC = () => {
+  const { lists } = useState();
+
   return (
     <>
       <div className="mb-3" dir="rtl">
         <span className="text-xl font-bold">پاسخ ها</span>
       </div>
 
-      {[
-        {
-          id: 1,
-          username: 'Mohammad',
-          comment: 'Great question i agree with you',
-          likes: 2,
-          dislikes: 1,
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-        {
-          id: 2,
-          username: 'Mohammad',
-          comment: 'Great question i agree with you',
-          likes: 2,
-          dislikes: 1,
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-        {
-          id: 3,
-          username: 'Mohammad',
-          comment: 'Great question i agree with you',
-          likes: 2,
-          dislikes: 1,
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-      ].map((comment, i) => (
+      {(lists.lists?.[Lists.COMMENTS]?.list as Comment[])?.map((comment, i) => (
         <React.Fragment key={comment.id}>
           <QuestionBox
             head={

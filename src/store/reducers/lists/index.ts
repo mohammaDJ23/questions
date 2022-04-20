@@ -1,4 +1,4 @@
-import { Actions, ActionTypes, GetList } from '../../actions/lists/types';
+import { Actions, ActionTypes, CleanList, GetList } from '../../actions/lists/types';
 import { State } from './types';
 
 const initialState: State = {
@@ -6,7 +6,7 @@ const initialState: State = {
 };
 
 function getList(state: State, action: GetList) {
-  const { data, listType } = action.payload;
+  const { data, listName } = action.payload;
 
   return {
     ...state,
@@ -14,15 +14,30 @@ function getList(state: State, action: GetList) {
     lists: {
       ...state.lists,
 
-      [listType]: data,
+      [listName]: {
+        ...state.lists[listName],
+
+        list: data,
+        count: data.length,
+      },
     },
   };
+}
+
+function cleanList(state: State, action: CleanList) {
+  const newState = { ...state };
+  const { listName } = action.payload;
+  delete newState.lists[listName];
+  return newState;
 }
 
 export function listsReducer(state: State = initialState, actions: Actions) {
   switch (actions.type) {
     case ActionTypes.GET_LIST:
       return getList(state, actions);
+
+    case ActionTypes.CLEAN_LIST:
+      return cleanList(state, actions);
 
     default:
       return state;

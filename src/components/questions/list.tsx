@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useHistory } from '../../hooks/use-history';
 import { useState } from '../../hooks/use-state';
 import { Question } from '../../store/reducers/lists/types';
-import { Lists } from '../../types';
+import { Lists } from '../../store/reducers/lists/types';
 import { Moment } from '../../utility/moment';
 import Questionbox from '../question-box';
 
@@ -12,7 +12,7 @@ const List: FC = () => {
 
   return (
     <ul>
-      {(lists.lists?.[Lists.QUESTIONS] as Question[])?.map((question, i) => (
+      {(lists.lists?.[Lists.QUESTIONS]?.list as Question[])?.map((question, i) => (
         <li key={question.id}>
           <Questionbox
             head={

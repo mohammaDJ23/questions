@@ -1,3 +1,8 @@
+export enum Lists {
+  QUESTIONS = 'QUESTIONS',
+  COMMENTS = 'COMMENTS',
+}
+
 export interface Question {
   id: number;
   topic: string;
@@ -6,6 +11,27 @@ export interface Question {
   updatedAt: string;
 }
 
+export interface Comment {
+  id: number;
+  questionId: number;
+  username: string;
+  comment: string;
+  likes: number;
+  dislikes: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Comments {
+  questionId: number;
+  comments: Comment[];
+}
+
 export interface State {
-  lists: { [key: string]: {}[] };
+  lists: {
+    [key: string]: {
+      list: {}[];
+      count: number;
+    };
+  };
 }
