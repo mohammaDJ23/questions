@@ -3,6 +3,11 @@ export enum Lists {
   COMMENTS = 'COMMENTS',
 }
 
+export enum UpdateOperation {
+  LIKE = 'LIKE',
+  DISLIKE = 'DISLIKE',
+}
+
 export interface Question {
   id: number;
   topic: string;

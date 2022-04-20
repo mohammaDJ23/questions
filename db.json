@@ -38,22 +38,12 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "questionId": 1,
-      "username": "Mohammad",
-      "comment": "Great question i agree with you",
-      "likes": 2,
-      "dislikes": 1,
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
       "id": 2,
       "questionId": 1,
       "username": "Mohammad",
       "comment": "Great question i agree with you",
-      "likes": 2,
-      "dislikes": 1,
+      "likes": 6,
+      "dislikes": 8,
       "createdAt": "2001-4-3",
       "updatedAt": "2001-4-3"
     },
@@ -62,8 +52,8 @@
       "questionId": 2,
       "username": "Mohammad",
       "comment": "Great question i agree with you",
-      "likes": 2,
-      "dislikes": 1,
+      "likes": 3,
+      "dislikes": 12,
       "createdAt": "2001-4-3",
       "updatedAt": "2001-4-3"
     }

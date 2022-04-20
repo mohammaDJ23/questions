@@ -2,12 +2,19 @@ import { Dispatch } from 'redux';
 import { matchPath } from 'react-router';
 import { RootActions } from '../root-actions';
 import { ActionTypes, QuestionParams } from './types';
-import { loading, error, success } from '../loading';
 import { Rest } from '../../../services/rest';
 import { listsApi } from '../../../apis/lists';
 import { Lists } from '../../reducers/lists/types';
 import { Routes } from '../../../routes/types';
 import { history } from '../../../App';
+import { error, loading, success } from '../loading';
+
+export function updateList(listName: string, data: {}[]) {
+  return {
+    type: ActionTypes.UPDATE_LIST,
+    payload: { data, listName },
+  };
+}
 
 export function getLists(listName: string, data: {}[]) {
   return {
@@ -31,16 +38,16 @@ function additionsInfo(listName: string) {
   }
 }
 
-function requestProcess(listName: string): Promise<{}[]> {
+function listRequestProcess<T>(listName: string): Promise<T> {
   let data = additionsInfo(listName);
-  return Rest.req<{}[]>(listsApi[listName](data));
+  return Rest.req<T>(listsApi[listName](data));
 }
 
 export function getList(listName: string) {
   return async function (dispatch: Dispatch<RootActions>) {
     try {
       dispatch(loading(listName));
-      const data = await requestProcess(listName);
+      const data = await listRequestProcess<{}[]>(listName);
       dispatch(success(listName));
       dispatch(getLists(listName, data));
     } catch (err) {

@@ -3,9 +3,11 @@ import QuestionBox from '../question-box';
 import { Moment } from '../../utility/moment';
 import { useState } from '../../hooks/use-state';
 import { Comment, Lists } from '../../store/reducers/lists/types';
+import { useCommentReaction } from '../../hooks/use-comment-reaction';
 
 const Answers: FC = () => {
   const { lists } = useState();
+  const { like, dislike } = useCommentReaction();
 
   return (
     <>
@@ -21,12 +23,12 @@ const Answers: FC = () => {
                 <div className="flex justify-center items-center">
                   <div className="mr-16 flex justify-start items-center mr-12">
                     <div className="flex mr-6 justify-start items-center">
-                      <span className="text-xs mr-1 text-slate-400">20</span>
+                      <span className="text-xs mr-1 text-slate-400">{comment.dislikes}</span>
                       <img src="/svgs/unhappy-gray.svg" alt="unhappy" />
                     </div>
 
                     <div className="flex justify-start items-center">
-                      <span className="text-xs mr-1 text-slate-400">20</span>
+                      <span className="text-xs mr-1 text-slate-400">{comment.likes}</span>
                       <img src="/svgs/happy.svg" alt="happy" />
                     </div>
                   </div>
@@ -64,10 +66,11 @@ const Answers: FC = () => {
                   <button
                     onClick={event => {
                       event.preventDefault();
+                      dislike(Lists.COMMENTS, i);
                     }}
                     className="py-1.5 text-red-500 px-2 text-xs flex justify-center items-center mr-3 rounded-md border-solid border-2 border-gray-200"
                   >
-                    <span className="mr-1"> مشاهده جزییات</span>
+                    <span className="mr-1"> پاسخ خوب نبود</span>
                     <span>
                       <img src="/svgs/unhappy-red.svg" alt="unhappy" />
                     </span>
@@ -76,10 +79,11 @@ const Answers: FC = () => {
                   <button
                     onClick={event => {
                       event.preventDefault();
+                      like(Lists.COMMENTS, i);
                     }}
                     className="py-1.5 px-2 text-green-500 text-xs flex justify-center items-center rounded-md border-solid border-2 border-gray-200"
                   >
-                    <span className="mr-1"> مشاهده جزییات</span>
+                    <span className="mr-1"> پاسخ خوب بود</span>
                     <span>
                       <img src="/svgs/happy.svg" alt="unhappy" />
                     </span>
