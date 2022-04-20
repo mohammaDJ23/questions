@@ -1,13 +1,15 @@
-import { combineReducers, createStore } from 'redux';
-import { questionDetailsReducer, questionsReducer, formReducer, modalReducer } from './reducers';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { questionDetailsReducer, listsReducer, formReducer, modalReducer, loadingReducer } from './reducers';
 
 const reducers = combineReducers({
-  questions: questionsReducer,
+  lists: listsReducer,
   questionDetails: questionDetailsReducer,
   forms: formReducer,
   modal: modalReducer,
+  loading: loadingReducer,
 });
 
-export const store = createStore(reducers);
+export const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 export type RootState = ReturnType<typeof reducers>;

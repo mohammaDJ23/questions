@@ -7,5 +7,5 @@ export interface Question {
 }
 
 export interface State {
-  questions: Question[];
+  lists: { [key: string]: {}[] };
 }

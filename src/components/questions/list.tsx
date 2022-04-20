@@ -1,50 +1,18 @@
 import { FC } from 'react';
 import { useHistory } from '../../hooks/use-history';
+import { useState } from '../../hooks/use-state';
+import { Question } from '../../store/reducers/lists/types';
+import { Lists } from '../../types';
 import { Moment } from '../../utility/moment';
 import Questionbox from '../question-box';
 
 const List: FC = () => {
   const { push } = useHistory();
+  const { lists } = useState();
 
   return (
     <ul>
-      {[
-        {
-          id: 1,
-          topic: 'Some problem with reactjs',
-          question: 'There are some really nasty problem with traditional state managment.',
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-        {
-          id: 2,
-          topic: 'Some problem with reactjs',
-          question: 'There are some really nasty problem with traditional state managment.',
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-        {
-          id: 3,
-          topic: 'Some problem with reactjs',
-          question: 'There are some really nasty problem with traditional state managment.',
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-        {
-          id: 4,
-          topic: 'Some problem with reactjs',
-          question: 'There are some really nasty problem with traditional state managment.',
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-        {
-          id: 5,
-          topic: 'Some problem with reactjs',
-          question: 'There are some really nasty problem with traditional state managment.',
-          createdAt: '2001-4-3',
-          updatedAt: '2001-4-3',
-        },
-      ].map((question, i) => (
+      {(lists.lists?.[Lists.QUESTIONS] as Question[])?.map((question, i) => (
         <li key={question.id}>
           <Questionbox
             head={

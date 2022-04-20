@@ -1,8 +1,9 @@
+import toast from 'react-hot-toast';
 import { FetchInput, ReqInput, ResponseData } from './types';
 
 class Request {
   protected static fetch<T extends FetchInput, K extends Promise<Response>>({ url, ...rest }: T): K {
-    return fetch(`${process.env.REACT_APP_REST_API_URL}/${url}`, {
+    return fetch(`${process.env.REACT_APP_REST_API_URL}${url}`, {
       body: JSON.stringify(rest.data),
       ...rest,
     }) as K;
@@ -15,6 +16,8 @@ export class Rest extends Request {
     const responseData: ResponseData = await response.json();
 
     if (!response.ok) {
+      toast.error(response.statusText);
+      throw new Error(response.statusText);
     }
 
     return responseData as T;
