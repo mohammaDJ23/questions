@@ -9,6 +9,7 @@ export interface Question {
   question: string;
   createdAt: string;
   updatedAt: string;
+  comments: Comment[];
 }
 
 export interface Comment {

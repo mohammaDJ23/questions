@@ -4,7 +4,7 @@ import { Lists } from '../store/reducers/lists/types';
 export const listsApi: { [key: string]: (...args: any[]) => ReqInput<any> } = {
   [Lists.QUESTIONS]() {
     return {
-      url: '/questions',
+      url: '/questions?_embed=comments',
       method: 'GET',
     };
   },
