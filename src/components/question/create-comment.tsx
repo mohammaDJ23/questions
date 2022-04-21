@@ -5,7 +5,7 @@ import { Forms, Inputs } from '../../forms/types';
 
 const CreateComment: FC = () => {
   const { onChange, onSubmit } = useAction();
-  const { forms } = useState();
+  const { forms, loading } = useState();
   const form = forms.forms[Forms.CREATE_NEW_COMMENT];
 
   return (
@@ -42,7 +42,7 @@ const CreateComment: FC = () => {
 
             <div>
               <button
-                disabled={!forms.formValidation[Forms.CREATE_NEW_COMMENT]}
+                disabled={!forms.formValidation[Forms.CREATE_NEW_COMMENT] || loading.loadings[Forms.CREATE_NEW_COMMENT]}
                 type="submit"
                 className="primary-btn text-white text-xs text-xl font-bold py-2 px-20 rounded"
               >

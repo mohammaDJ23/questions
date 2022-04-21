@@ -5,7 +5,7 @@ import Modal from '../modal';
 
 const QuestionModal = () => {
   const { showModal, onSubmit, onChange } = useAction();
-  const { modal, forms } = useState();
+  const { modal, forms, loading } = useState();
   const form = forms.forms[Forms.CREATE_NEW_QUESTION];
 
   return (
@@ -77,7 +77,9 @@ const QuestionModal = () => {
                   event.preventDefault();
                   onSubmit(Forms.CREATE_NEW_QUESTION);
                 }}
-                disabled={!forms.formValidation[Forms.CREATE_NEW_QUESTION]}
+                disabled={
+                  !forms.formValidation[Forms.CREATE_NEW_QUESTION] || loading.loadings[Forms.CREATE_NEW_QUESTION]
+                }
                 type="submit"
                 className="primary-btn text-white text-xs mr-5 font-bold py-1.5 px-3 rounded"
               >
