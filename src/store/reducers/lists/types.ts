@@ -8,8 +8,7 @@ export enum Items {
 }
 
 export enum UpdateOperation {
-  LIKE = 'LIKE',
-  DISLIKE = 'DISLIKE',
+  COMMENT = 'COMMENT',
 }
 
 export interface Question {

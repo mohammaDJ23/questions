@@ -9,48 +9,44 @@ export function useCommentReaction() {
   const { updateList, loading, success, error } = useAction();
   const { getItem, getList } = useList();
 
-  const like = useCallback(
-    async (listName: string, index: number) => {
+  const updateProcess = useCallback(
+    async (listName: string, index: number, data: Comment) => {
       try {
-        const item = getItem(listName, index) as Comment;
-        const copyItem = { ...item };
-        copyItem.likes++;
-
-        loading(UpdateOperation.LIKE);
-        await Rest.req(udpateItemApis[UpdateOperation.LIKE](copyItem));
-        success(UpdateOperation.LIKE);
+        loading(UpdateOperation.COMMENT);
+        await Rest.req(udpateItemApis[UpdateOperation.COMMENT](data));
+        success(UpdateOperation.COMMENT);
 
         const list = getList(listName);
-        list[index] = copyItem;
+        list[index] = data;
         updateList(listName, list);
       } catch (err) {
-        error(UpdateOperation.LIKE, (err as any).message);
+        error(UpdateOperation.COMMENT, (err as any).message);
       }
     },
 
-    [getItem, loading, success, updateList, getList, error],
+    [loading, success, updateList, getList, error],
+  );
+
+  const like = useCallback(
+    (listName: string, index: number) => {
+      const item = getItem(listName, index) as Comment;
+      const copyItem = { ...item };
+      copyItem.likes++;
+      updateProcess(listName, index, copyItem);
+    },
+
+    [updateProcess, getItem],
   );
 
   const dislike = useCallback(
-    async (listName: string, index: number) => {
-      try {
-        const item = getItem(listName, index) as Comment;
-        const copyItem = { ...item };
-        copyItem.dislikes++;
-
-        loading(UpdateOperation.DISLIKE);
-        await Rest.req(udpateItemApis[UpdateOperation.DISLIKE](copyItem));
-        success(UpdateOperation.DISLIKE);
-
-        const list = getList(listName);
-        list[index] = copyItem;
-        updateList(listName, list);
-      } catch (err) {
-        error(UpdateOperation.DISLIKE, (err as any).message);
-      }
+    (listName: string, index: number) => {
+      const item = getItem(listName, index) as Comment;
+      const copyItem = { ...item };
+      copyItem.dislikes++;
+      updateProcess(listName, index, copyItem);
     },
 
-    [getItem, loading, success, updateList, getList, error],
+    [updateProcess, getItem],
   );
 
   return { like, dislike };

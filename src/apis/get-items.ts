@@ -4,7 +4,7 @@ import { ReqInput } from '../services/types';
 export const getItemApis: { [key: string]: (...args: any[]) => ReqInput<any> } = {
   [Items.QUESTION](data) {
     return {
-      url: `/questions/${data.id}`,
+      url: `/questions/${data.id}?_embed=comments`,
       method: 'GET',
     };
   },
