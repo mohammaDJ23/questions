@@ -36,7 +36,7 @@ export function useCommentReaction() {
       try {
         const item = getItem(listName, index) as Comment;
         const copyItem = { ...item };
-        copyItem.likes--;
+        copyItem.dislikes++;
 
         loading(UpdateOperation.DISLIKE);
         await Rest.req(udpateItemApis[UpdateOperation.DISLIKE](copyItem));
