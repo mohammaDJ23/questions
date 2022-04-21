@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { getItemApis } from '../apis/get-items';
+import { getItemApis } from '../apis/get-item';
 import { history } from '..';
 import { Routes } from '../routes/types';
 import { Rest } from '../services/rest';

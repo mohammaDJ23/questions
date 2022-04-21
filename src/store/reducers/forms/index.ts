@@ -77,6 +77,8 @@ function cleanForm(state: State, action: CleanForm) {
     newState.forms[form][input].error = '';
   }
 
+  newState.formValidation[form] = false;
+
   return newState;
 }
 
