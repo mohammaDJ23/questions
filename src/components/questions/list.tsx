@@ -20,7 +20,7 @@ const List: FC = () => {
                 <div className="flex justify-center items-center">
                   <div className="w-16 flex justify-start items-center">
                     <div className="w-5">
-                      <span className="text-xs text-slate-400">{question.comments.length}</span>
+                      <span className="text-xs text-slate-400">{question.comments ? question.comments.length : 0}</span>
                     </div>
 
                     <div>

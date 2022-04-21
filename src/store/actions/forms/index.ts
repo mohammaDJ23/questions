@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import { formApis } from '../../../apis/forms';
 import { Forms } from '../../../forms/types';
 import { Comment } from '../../../model/comment';
+import { Question } from '../../../model/question';
 import { Rest } from '../../../services/rest';
 import { Form, Input } from '../../reducers/forms/types';
 import { Lists } from '../../reducers/lists/types';
@@ -65,6 +66,14 @@ function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formNam
       const commentList = state.lists.lists[Lists.COMMENTS].list;
       commentList.push(data as Comment);
       dispatch(updateList(Lists.COMMENTS, commentList));
+      break;
+
+    // adding new post to current list
+
+    case Forms.CREATE_NEW_QUESTION:
+      const questionList = state.lists.lists[Lists.QUESTIONS].list;
+      questionList.push(data as Question);
+      dispatch(updateList(Lists.QUESTIONS, questionList));
       break;
   }
 }

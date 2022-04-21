@@ -33,7 +33,13 @@ const QuestionModal = () => {
     >
       {form && (
         <div className="w-full">
-          <form className="w-full">
+          <form
+            onSubmit={event => {
+              event.preventDefault();
+              onSubmit(Forms.CREATE_NEW_QUESTION);
+            }}
+            className="w-full"
+          >
             <div className="mb-3 text-right" dir="rtl">
               <label dir="rtl" className="text-right text-xs font-bold mb-2" htmlFor="topic">
                 موضوع

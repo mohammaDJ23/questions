@@ -9,12 +9,12 @@ export enum UpdateOperation {
 }
 
 export interface Question {
-  id: number;
+  id: string;
   topic: string;
   question: string;
   createdAt: string;
   updatedAt: string;
-  comments: Comment[];
+  comments?: Comment[];
 }
 
 export interface Comment {
@@ -26,11 +26,6 @@ export interface Comment {
   dislikes: number;
   createdAt: string;
   updatedAt: string;
-}
-
-export interface Comments {
-  questionId: number;
-  comments: Comment[];
 }
 
 export interface State {
