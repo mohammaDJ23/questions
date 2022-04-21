@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { formApis } from '../../../apis/forms';
-import { history } from '../../../App';
+import { history } from '../../..';
 import { Forms, Inputs } from '../../../forms/types';
 import { Comment } from '../../../model/comment';
 import { Question } from '../../../model/question';

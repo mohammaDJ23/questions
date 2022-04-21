@@ -3,6 +3,10 @@ export enum Lists {
   COMMENTS = 'COMMENTS',
 }
 
+export enum Items {
+  QUESTION = 'QUESTION',
+}
+
 export enum UpdateOperation {
   LIKE = 'LIKE',
   DISLIKE = 'DISLIKE',

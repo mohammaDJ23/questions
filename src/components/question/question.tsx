@@ -1,16 +1,17 @@
 import { FC } from 'react';
 import QuestionBox from '../question-box';
 import { Moment } from '../../utility/moment';
+import { QuestionProps } from './types';
 
-const Question: FC = () => {
-  return (
+const Question: FC<QuestionProps> = ({ question }) => {
+  return question ? (
     <QuestionBox
       head={
         <>
           <div className="flex justify-center items-center">
             <div className="w-16 flex justify-start items-center">
               <div className="w-5">
-                <span className="text-xs text-slate-400">20</span>
+                <span className="text-xs text-slate-400">{question.comments ? question.comments.length : 0}</span>
               </div>
 
               <div>
@@ -20,21 +21,21 @@ const Question: FC = () => {
 
             <div className="w-24">
               <span>
-                <span className="text-xs font-bold">{Moment.format(new Date(), 'l')}</span>
+                <span className="text-xs font-bold">{Moment.format(question.createdAt, 'l')}</span>
                 <span className="text-xs text-slate-400"> :تاریخ</span>
               </span>
             </div>
 
             <div>
               <span>
-                <span className="text-xs font-bold">{Moment.format(new Date(), 'LT')}</span>
+                <span className="text-xs font-bold">{Moment.format(question.createdAt, 'LT')}</span>
                 <span className="text-xs text-slate-400"> :ساعت</span>
               </span>
             </div>
           </div>
 
           <div className="flex justify-center items-center">
-            <span className="mr-4 font-semibold text-base">{'title'}</span>
+            <span className="mr-4 font-semibold text-base">{question.topic}</span>
             <span>
               <img src="/svgs/user-profile.svg" alt="user-profile" />
             </span>
@@ -43,10 +44,12 @@ const Question: FC = () => {
       }
       body={
         <div>
-          <p className="text-right text-sm">{'some quetion'}</p>
+          <p className="text-right text-sm">{question.question}</p>
         </div>
       }
     />
+  ) : (
+    <></>
   );
 };
 

@@ -1,4 +1,3 @@
-import toast from 'react-hot-toast';
 import { FetchInput, ReqInput, ResponseData } from './types';
 
 class Request {
@@ -16,7 +15,6 @@ export class Rest extends Request {
     const responseData: ResponseData = await response.json();
 
     if (!response.ok) {
-      toast.error(response.statusText);
       throw new Error(response.statusText);
     }
 

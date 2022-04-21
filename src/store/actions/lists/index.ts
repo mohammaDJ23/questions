@@ -5,7 +5,7 @@ import { Rest } from '../../../services/rest';
 import { listsApi } from '../../../apis/lists';
 import { Lists } from '../../reducers/lists/types';
 import { Routes } from '../../../routes/types';
-import { history } from '../../../App';
+import { history } from '../../..';
 import { error, loading, success } from '../loading';
 import { History } from '../../../utility/history';
 
