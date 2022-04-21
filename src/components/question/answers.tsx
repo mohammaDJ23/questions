@@ -11,9 +11,11 @@ const Answers: FC = () => {
 
   return (
     <>
-      <div className="mb-3" dir="rtl">
-        <span className="text-xl font-bold">پاسخ ها</span>
-      </div>
+      {lists.lists?.[Lists.COMMENTS]?.list.length !== 0 && (
+        <div className="mb-3" dir="rtl">
+          <span className="text-xl font-bold">پاسخ ها</span>
+        </div>
+      )}
 
       {(lists.lists?.[Lists.COMMENTS]?.list as Comment[])?.map((comment, i) => (
         <React.Fragment key={comment.id}>

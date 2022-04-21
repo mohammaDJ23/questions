@@ -1,318 +1,53 @@
 {
   "questions": [
     {
-      "id": 1,
-      "topic": "Some problem with reactjs",
-      "question": "There are some really nasty problem with traditional state managment.",
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
-      "id": 2,
-      "topic": "Some problem with reactjs",
-      "question": "There are some really nasty problem with traditional state managment.",
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
-      "id": 3,
-      "topic": "Some problem with reactjs",
-      "question": "There are some really nasty problem with traditional state managment.",
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
-      "id": 4,
-      "topic": "Some problem with reactjs",
-      "question": "There are some really nasty problem with traditional state managment.",
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
-      "id": 5,
-      "topic": "Some problem with reactjs",
-      "question": "There are some really nasty problem with traditional state managment.",
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
       "topic": "new topic",
-      "question": "new question",
-      "id": "77084918-f9c6-46d8-8543-785fbe212bec",
-      "createdAt": "2022-04-21T13:16:36.348Z",
-      "updatedAt": "2022-04-21T13:16:36.348Z"
-    },
-    {
-      "topic": "adsf",
-      "question": "adf",
-      "id": "3f8830db-6b80-445c-971b-74c18940e283",
-      "createdAt": "2022-04-21T13:19:04.516Z",
-      "updatedAt": "2022-04-21T13:19:04.516Z"
-    },
-    {
-      "topic": "foijs",
-      "question": "soidjf\n",
-      "id": "53912e0b-0806-4221-aa86-562bbd00fe04",
-      "createdAt": "2022-04-21T13:21:22.033Z",
-      "updatedAt": "2022-04-21T13:21:22.033Z"
-    },
-    {
-      "topic": "foijsioj",
-      "question": "soidjf\n",
-      "id": "293ca5bc-2af9-482f-a0dd-17d239732bd6",
-      "createdAt": "2022-04-21T13:21:30.521Z",
-      "updatedAt": "2022-04-21T13:21:30.521Z"
-    },
-    {
-      "topic": "fsdf",
-      "question": "df",
-      "id": "36f416e6-acfe-43d3-8d99-ef67083f955d",
-      "createdAt": "2022-04-21T13:22:53.654Z",
-      "updatedAt": "2022-04-21T13:22:53.654Z"
-    },
-    {
-      "topic": "ih",
-      "question": "hui",
-      "id": "8a1b8c7c-58f1-407b-8579-07f627896f16",
-      "createdAt": "2022-04-21T13:23:16.325Z",
-      "updatedAt": "2022-04-21T13:23:16.325Z"
-    },
-    {
-      "topic": "sdf",
-      "question": "oijf",
-      "id": "3144abf1-944e-495c-9144-e472d7389b28",
-      "createdAt": "2022-04-21T13:23:55.257Z",
-      "updatedAt": "2022-04-21T13:23:55.257Z"
-    },
-    {
-      "topic": "ijdiof",
-      "question": "oijoidfjsd",
-      "id": "b1d99533-6094-41b1-ad91-7a978f5fe297",
-      "createdAt": "2022-04-21T13:25:16.001Z",
-      "updatedAt": "2022-04-21T13:25:16.001Z"
-    },
-    {
-      "topic": "ijdiof",
-      "question": "oijoidfjsd",
-      "id": "dc2b18a9-572a-42dd-80ad-d91b07cb7435",
-      "createdAt": "2022-04-21T13:25:16.942Z",
-      "updatedAt": "2022-04-21T13:25:16.942Z"
-    },
-    {
-      "topic": "sijdf",
-      "question": "ooisdjf",
-      "id": "8ca555e4-083f-48a4-8868-7106a8d462c5",
-      "createdAt": "2022-04-21T13:25:55.581Z",
-      "updatedAt": "2022-04-21T13:25:55.581Z"
-    },
-    {
-      "topic": "sijdf",
-      "question": "ooisdjf",
-      "id": "5ccb39fd-2e86-47e6-afd2-bb796fbf7f2f",
-      "createdAt": "2022-04-21T13:25:56.392Z",
-      "updatedAt": "2022-04-21T13:25:56.392Z"
-    },
-    {
-      "topic": "sijdf",
-      "question": "ooisdjf",
-      "id": "85f2ee71-c039-4db4-a60c-0cef7a72c46c",
-      "createdAt": "2022-04-21T13:25:56.707Z",
-      "updatedAt": "2022-04-21T13:25:56.707Z"
-    },
-    {
-      "topic": "sijdf",
-      "question": "ooisdjf",
-      "id": "26e81b8e-0c74-4b5d-b785-dda65394388c",
-      "createdAt": "2022-04-21T13:25:56.771Z",
-      "updatedAt": "2022-04-21T13:25:56.771Z"
-    },
-    {
-      "topic": "sijdf",
-      "question": "ooisdjf",
-      "id": "7144d3e8-270a-49bf-a9f1-63af22767738",
-      "createdAt": "2022-04-21T13:25:57.015Z",
-      "updatedAt": "2022-04-21T13:25:57.015Z"
-    },
-    {
-      "topic": "sodijf",
-      "question": "sodijf\n",
-      "id": "4dcc00b4-6b5c-466c-a92d-ad507d801d11",
-      "createdAt": "2022-04-21T16:14:41.528Z",
-      "updatedAt": "2022-04-21T16:14:41.528Z"
-    },
-    {
-      "topic": "sodijf",
-      "question": "sodijf\n",
-      "id": "38ea548f-39bd-4282-b6a1-806f593ca87f",
-      "createdAt": "2022-04-21T16:14:42.555Z",
-      "updatedAt": "2022-04-21T16:14:42.555Z"
-    },
-    {
-      "topic": "fasdf",
-      "question": "sdf",
-      "id": "fbe77746-c9b1-4a40-937d-c38236915854",
-      "createdAt": "2022-04-21T16:14:54.132Z",
-      "updatedAt": "2022-04-21T16:14:54.132Z"
-    },
-    {
-      "topic": "fasdf",
-      "question": "sdffasdfasdfadfasdf",
-      "id": "111945c1-2da1-4f95-b950-674b72f9e6c8",
-      "createdAt": "2022-04-21T16:15:04.797Z",
-      "updatedAt": "2022-04-21T16:15:04.797Z"
-    },
-    {
-      "topic": "fasdf",
-      "question": "sdffasdfasdfadfasdf",
-      "id": "e057277e-ec00-4d97-894f-55fabc60d102",
-      "createdAt": "2022-04-21T16:15:12.784Z",
-      "updatedAt": "2022-04-21T16:15:12.784Z"
-    },
-    {
-      "topic": "new post",
-      "question": "new post",
-      "id": "258684d2-8538-4cb3-9a8f-10b00086aba0",
-      "createdAt": "2022-04-21T16:54:05.660Z",
-      "updatedAt": "2022-04-21T16:54:05.660Z"
-    },
-    {
-      "topic": "he",
-      "question": "he",
-      "id": "9b08ca51-d45f-42d4-9575-973225fc9d6a",
-      "createdAt": "2022-04-21T16:54:24.117Z",
-      "updatedAt": "2022-04-21T16:54:24.117Z"
+      "question": "nothing special",
+      "id": "e0107277-e842-40c3-ae2e-1b6e34f38582",
+      "createdAt": "2022-04-21T17:27:56.495Z",
+      "updatedAt": "2022-04-21T17:27:56.495Z"
     }
   ],
   "comments": [
     {
-      "id": 2,
-      "questionId": 1,
-      "username": "Mohammad",
-      "comment": "Great question i agree with you",
-      "likes": 11,
-      "dislikes": 11,
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
-      "id": 1,
-      "questionId": 2,
-      "username": "Mohammad",
-      "comment": "Great question i agree with you",
+      "questionId": "e0107277-e842-40c3-ae2e-1b6e34f38582",
+      "comment": "new comment",
+      "username": "Kim Ondricka",
       "likes": 3,
-      "dislikes": 12,
-      "createdAt": "2001-4-3",
-      "updatedAt": "2001-4-3"
-    },
-    {
-      "questionId": "1",
-      "comment": "new comment",
-      "username": "Elisa Hilpert",
-      "likes": 1,
       "dislikes": 1,
-      "createdAt": "2022-04-21T11:47:28.510Z",
-      "updatedAt": "2022-04-21T11:47:28.510Z",
-      "id": "24a67281-5329-4989-b36b-302120add3bf"
+      "createdAt": "2022-04-21T17:30:05.276Z",
+      "updatedAt": "2022-04-21T17:30:11.413Z",
+      "id": "4438f91f-4432-4e69-803a-69f87d543e6a"
     },
     {
-      "questionId": "1",
-      "comment": "hey i know the answer",
-      "username": "Marion Conroy",
+      "questionId": "e0107277-e842-40c3-ae2e-1b6e34f38582",
+      "comment": "another coment",
+      "username": "Mr. Terrance Thompson",
       "likes": 0,
       "dislikes": 0,
-      "createdAt": "2022-04-21T11:48:06.095Z",
-      "updatedAt": "2022-04-21T11:48:06.095Z",
-      "id": "b36e1588-c3b6-474e-9487-3cb72d6a894f"
+      "createdAt": "2022-04-21T17:30:40.738Z",
+      "updatedAt": "2022-04-21T17:30:40.738Z",
+      "id": "449c24ab-5679-4afb-baf5-a810761b362c"
     },
     {
-      "questionId": "1",
-      "comment": "hey you",
-      "username": "Claire Harvey",
+      "questionId": "e0107277-e842-40c3-ae2e-1b6e34f38582",
+      "comment": "something else",
+      "username": "Shelley Donnelly II",
       "likes": 0,
       "dislikes": 0,
-      "createdAt": "2022-04-21T11:49:40.390Z",
-      "updatedAt": "2022-04-21T11:49:40.390Z",
-      "id": "6e9e369f-edcd-4dde-9f76-494b11f18c7c"
+      "createdAt": "2022-04-21T17:34:03.504Z",
+      "updatedAt": "2022-04-21T17:34:03.504Z",
+      "id": "0a4c6ea5-5aea-4345-bfce-3fd6af0fcf2b"
     },
     {
-      "questionId": "1",
-      "comment": "hey you",
-      "username": "Josh Herzog",
+      "questionId": "e0107277-e842-40c3-ae2e-1b6e34f38582",
+      "comment": "last coment",
+      "username": "Michael Jacobi Jr.",
       "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T11:49:54.217Z",
-      "updatedAt": "2022-04-21T11:49:54.217Z",
-      "id": "6e0f3d29-9394-4a0b-be50-b1bc3f58a966"
-    },
-    {
-      "questionId": "1",
-      "comment": "something",
-      "username": "Clyde Huel",
-      "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T11:50:19.538Z",
-      "updatedAt": "2022-04-21T11:50:19.538Z",
-      "id": "96ce8139-2a68-4d67-a758-2d780dfa6bc5"
-    },
-    {
-      "questionId": "1",
-      "comment": "another comment",
-      "username": "Miss Jonathon Denesik",
-      "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T12:56:24.663Z",
-      "updatedAt": "2022-04-21T12:56:24.663Z",
-      "id": "2d7359e5-2ce9-4313-af0e-0bd3a9d71257"
-    },
-    {
-      "questionId": "1",
-      "comment": "eh",
-      "username": "Stephen D'Amore DVM",
-      "likes": 1,
-      "dislikes": 1,
-      "createdAt": "2022-04-21T13:01:35.637Z",
-      "updatedAt": "2022-04-21T13:01:35.637Z",
-      "id": "1f31b8f0-6b57-4101-8026-46ba8eb97649"
-    },
-    {
-      "questionId": "9b08ca51-d45f-42d4-9575-973225fc9d6a",
-      "comment": "new comment",
-      "username": "Mamie Dietrich MD",
-      "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T16:54:49.852Z",
-      "updatedAt": "2022-04-21T16:54:49.852Z",
-      "id": "3b02c2f1-89bb-4d72-9dc2-fd5a40ea1cb9"
-    },
-    {
-      "questionId": "3144abf1-944e-495c-9144-e472d7389b28",
-      "comment": "new po",
-      "username": "Isabel Kub",
-      "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T16:55:19.229Z",
-      "updatedAt": "2022-04-21T16:55:19.229Z",
-      "id": "b8be1fbc-25dd-47a2-b14c-dacf1e80c9ed"
-    },
-    {
-      "questionId": "3144abf1-944e-495c-9144-e472d7389b28",
-      "comment": "fsdfa",
-      "username": "Sue Rodriguez",
-      "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T16:55:46.577Z",
-      "updatedAt": "2022-04-21T16:55:46.577Z",
-      "id": "73dfc25b-7973-45ff-b96d-e514fa0efff6"
-    },
-    {
-      "questionId": "9b08ca51-d45f-42d4-9575-973225fc9d6a",
-      "comment": "aisjdf",
-      "username": "Alton Schroeder I",
-      "likes": 0,
-      "dislikes": 0,
-      "createdAt": "2022-04-21T17:01:59.928Z",
-      "updatedAt": "2022-04-21T17:01:59.928Z",
-      "id": "7c8ef6ef-c996-4bf3-ae35-d7c864190d13"
+      "dislikes": 5,
+      "createdAt": "2022-04-21T17:35:07.348Z",
+      "updatedAt": "2022-04-21T17:35:24.299Z",
+      "id": "fc0912b5-1512-4443-90a1-60e87e64287e"
     }
   ]
 }

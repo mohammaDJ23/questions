@@ -2,8 +2,12 @@ import { FC } from 'react';
 import QuestionBox from '../question-box';
 import { Moment } from '../../utility/moment';
 import { QuestionProps } from './types';
+import { useState } from '../../hooks/use-state';
+import { Lists } from '../../store/reducers/lists/types';
 
 const Question: FC<QuestionProps> = ({ question }) => {
+  const { lists } = useState();
+
   return question ? (
     <QuestionBox
       head={
@@ -11,7 +15,9 @@ const Question: FC<QuestionProps> = ({ question }) => {
           <div className="flex justify-center items-center">
             <div className="w-16 flex justify-start items-center">
               <div className="w-5">
-                <span className="text-xs text-slate-400">{question.comments ? question.comments.length : 0}</span>
+                <span className="text-xs text-slate-400">
+                  {lists.lists?.[Lists.COMMENTS]?.list?.length || question.comments?.length || 0}
+                </span>
               </div>
 
               <div>
