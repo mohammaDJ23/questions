@@ -1,5 +1,5 @@
 import { inputValidation, isFormValid } from '../../../utility/validations';
-import { Actions, ActionTypes, OnChange, OnSubmit, SetForms } from '../../actions/forms/types';
+import { Actions, ActionTypes, CleanForm, OnChange, OnSubmit, SetForms } from '../../actions/forms/types';
 import { State } from './types';
 
 const initialState: State = {
@@ -53,6 +53,33 @@ function setForms(state: State, action: SetForms) {
   return newState;
 }
 
+function getPlainValue(value: unknown) {
+  return typeof value === 'boolean'
+    ? false
+    : typeof value === 'string'
+    ? ''
+    : typeof value === 'number'
+    ? 0
+    : value instanceof Array
+    ? []
+    : value instanceof Object
+    ? {}
+    : null;
+}
+
+function cleanForm(state: State, action: CleanForm) {
+  const { form } = action.payload;
+  const newState = { ...state };
+
+  for (const input in newState.forms[form]) {
+    newState.forms[form][input].value = getPlainValue(newState.forms[form][input].value);
+    newState.forms[form][input].isValid = false;
+    newState.forms[form][input].error = '';
+  }
+
+  return newState;
+}
+
 export function formReducer(state: State = initialState, action: Actions) {
   switch (action.type) {
     case ActionTypes.ON_CHANGE:
@@ -63,6 +90,9 @@ export function formReducer(state: State = initialState, action: Actions) {
 
     case ActionTypes.SET_FORMS:
       return setForms(state, action);
+
+    case ActionTypes.CLEAN_FORM:
+      return cleanForm(state, action);
 
     default:
       return state;

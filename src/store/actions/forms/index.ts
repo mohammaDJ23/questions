@@ -14,9 +14,10 @@ import { updateList } from '../lists';
 import { QuestionParams } from '../lists/types';
 import { error, loading, success } from '../loading';
 import { RootActions } from '../root-actions';
-import { ActionTypes } from './types';
+import { ActionTypes, CleanForm, OnSubmit } from './types';
+import { showModal } from '../modal';
 
-export function submit(form: string) {
+export function submit(form: string): OnSubmit {
   return {
     type: ActionTypes.ON_SUBMIT,
     payload: {
@@ -45,8 +46,15 @@ export function setForms(forms: Form[]) {
   };
 }
 
+export function cleanForm(form: string): CleanForm {
+  return {
+    type: ActionTypes.CLEAN_FORM,
+    payload: { form },
+  };
+}
+
 function getInputs(form: Input) {
-  const inputs: { [key: string]: string } = {};
+  const inputs: { [key: string]: any } = {};
 
   for (const input in form) {
     inputs[input] = form[input].value;
@@ -81,16 +89,19 @@ function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formNam
 
     case Forms.CREATE_NEW_COMMENT:
       const commentList = state.lists.lists[Lists.COMMENTS].list;
-      commentList.push(data as Comment);
+      commentList.unshift(data as Comment);
       dispatch(updateList(Lists.COMMENTS, commentList));
+      dispatch(cleanForm(formName));
       break;
 
     // adding new post to current list
 
     case Forms.CREATE_NEW_QUESTION:
       const questionList = state.lists.lists[Lists.QUESTIONS].list;
-      questionList.push(data as Question);
+      questionList.unshift(data as Question);
       dispatch(updateList(Lists.QUESTIONS, questionList));
+      dispatch(showModal(false));
+      dispatch(cleanForm(formName));
       break;
   }
 }

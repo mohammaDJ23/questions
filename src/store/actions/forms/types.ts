@@ -4,6 +4,7 @@ export enum ActionTypes {
   ON_CHANGE = 'ON_CHANGE',
   ON_SUBMIT = 'ON_SUBMIT',
   SET_FORMS = 'SET_FORMS',
+  CLEAN_FORM = 'CLEAN_FORM',
 }
 
 export interface OnSubmit {
@@ -29,4 +30,11 @@ export interface SetForms {
   };
 }
 
-export type Actions = OnChange | OnSubmit | SetForms;
+export interface CleanForm {
+  type: ActionTypes.CLEAN_FORM;
+  payload: {
+    form: string;
+  };
+}
+
+export type Actions = OnChange | OnSubmit | SetForms | CleanForm;

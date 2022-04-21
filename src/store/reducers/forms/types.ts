@@ -1,6 +1,6 @@
 export interface Input {
   [key: string]: {
-    value: string;
+    value: any;
     error: string;
     isValid: boolean;
   };
