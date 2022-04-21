@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { FC } from 'react';
 import { useHistory } from '../../hooks/use-history';
 import { useState } from '../../hooks/use-state';
@@ -90,4 +91,4 @@ const List: FC = () => {
   );
 };
 
-export default List;
+export default memo(List);

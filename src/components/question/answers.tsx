@@ -5,6 +5,7 @@ import { useState } from '../../hooks/use-state';
 import { Comment, Lists } from '../../store/reducers/lists/types';
 import { useCommentReaction } from '../../hooks/use-comment-reaction';
 import Spinner from '../spinner';
+import { memo } from 'react';
 
 const Answers: FC = () => {
   const { lists, loading } = useState();
@@ -107,4 +108,4 @@ const Answers: FC = () => {
   );
 };
 
-export default Answers;
+export default memo(Answers);

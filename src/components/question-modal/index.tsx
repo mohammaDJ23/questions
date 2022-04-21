@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Forms, Inputs } from '../../forms/types';
 import { useAction } from '../../hooks/use-actions';
 import { useState } from '../../hooks/use-state';
@@ -103,4 +104,4 @@ const QuestionModal = () => {
   );
 };
 
-export default QuestionModal;
+export default memo(QuestionModal);

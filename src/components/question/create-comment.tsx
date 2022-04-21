@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useAction } from '../../hooks/use-actions';
 import { useState } from '../../hooks/use-state';
 import { Forms, Inputs } from '../../forms/types';
@@ -57,4 +57,4 @@ const CreateComment: FC = () => {
   );
 };
 
-export default CreateComment;
+export default memo(CreateComment);

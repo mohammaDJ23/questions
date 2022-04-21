@@ -3,6 +3,7 @@ import { useHistory } from '../../hooks/use-history';
 import { FC } from 'react';
 import { useAction } from '../../hooks/use-actions';
 import { Routes } from '../../routes/types';
+import { memo } from 'react';
 
 const Header: FC = () => {
   const { history, push } = useHistory();
@@ -52,4 +53,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

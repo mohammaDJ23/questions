@@ -5,6 +5,7 @@ import { QuestionProps } from './types';
 import { useState } from '../../hooks/use-state';
 import { Items, Lists } from '../../store/reducers/lists/types';
 import Spinner from '../spinner';
+import { memo } from 'react';
 
 const Question: FC<QuestionProps> = ({ question }) => {
   const { lists, loading } = useState();
@@ -62,4 +63,4 @@ const Question: FC<QuestionProps> = ({ question }) => {
   );
 };
 
-export default Question;
+export default memo(Question);
