@@ -1,13 +1,17 @@
 import { Dispatch } from 'redux';
 import { formApis } from '../../../apis/forms';
-import { Forms } from '../../../forms/types';
+import { history } from '../../../App';
+import { Forms, Inputs } from '../../../forms/types';
 import { Comment } from '../../../model/comment';
 import { Question } from '../../../model/question';
+import { Routes } from '../../../routes/types';
 import { Rest } from '../../../services/rest';
+import { History } from '../../../utility/history';
 import { Form, Input } from '../../reducers/forms/types';
 import { Lists } from '../../reducers/lists/types';
 import { RootState } from '../../store';
 import { updateList } from '../lists';
+import { QuestionParams } from '../lists/types';
 import { error, loading, success } from '../loading';
 import { RootActions } from '../root-actions';
 import { ActionTypes } from './types';
@@ -41,8 +45,8 @@ export function setForms(forms: Form[]) {
   };
 }
 
-function formOptimization(form: Input) {
-  const inputs: { [key: string]: unknown } = {};
+function getInputs(form: Input) {
+  const inputs: { [key: string]: string } = {};
 
   for (const input in form) {
     inputs[input] = form[input].value;
@@ -51,10 +55,23 @@ function formOptimization(form: Input) {
   return inputs;
 }
 
-function beforeRequest(formName: string, state: RootState) {
+function beforeRequest(dispatch: Dispatch<RootActions>, state: RootState, formName: string) {
+  const inputs = getInputs(state.forms.forms[formName]);
+
   switch (formName) {
+    // getting new comment and merging with addintion infos
+
+    case Forms.CREATE_NEW_COMMENT:
+      const questionId = History.matchPath<QuestionParams>(history.location.pathname, Routes.QUESTION);
+      return new Comment(questionId?.params?.id!, inputs[Inputs.COMMENT]);
+
+    // getting new question and merging with addition infos
+
+    case Forms.CREATE_NEW_QUESTION:
+      return new Question(inputs[Inputs.TOPIC], inputs[Inputs.QUESTION]);
+
     default:
-      return formOptimization(state.forms.forms[formName]);
+      return inputs;
   }
 }
 
@@ -79,8 +96,8 @@ function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formNam
 }
 
 async function formRequestProcess(dispatch: Dispatch<RootActions>, state: RootState, formName: string) {
-  const optimizedForm = beforeRequest(formName, state);
-  const data = await Rest.req(formApis[formName](optimizedForm));
+  const formInfo = beforeRequest(dispatch, state, formName);
+  const data = await Rest.req(formApis[formName](formInfo));
   afterRequest(dispatch, state, formName, data);
 }
 
