@@ -32,6 +32,7 @@ export function useCommentReaction() {
       const item = getItem(listName, index) as Comment;
       const copyItem = { ...item };
       copyItem.likes++;
+      copyItem.updatedAt = new Date().toISOString();
       updateProcess(listName, index, copyItem);
     },
 
@@ -43,6 +44,7 @@ export function useCommentReaction() {
       const item = getItem(listName, index) as Comment;
       const copyItem = { ...item };
       copyItem.dislikes++;
+      copyItem.updatedAt = new Date().toISOString();
       updateProcess(listName, index, copyItem);
     },
 
