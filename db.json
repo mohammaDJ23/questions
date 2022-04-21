@@ -56,6 +56,76 @@
       "dislikes": 12,
       "createdAt": "2001-4-3",
       "updatedAt": "2001-4-3"
+    },
+    {
+      "questionId": "1",
+      "comment": "new comment",
+      "username": "Elisa Hilpert",
+      "likes": 1,
+      "dislikes": 1,
+      "createdAt": "2022-04-21T11:47:28.510Z",
+      "updatedAt": "2022-04-21T11:47:28.510Z",
+      "id": "24a67281-5329-4989-b36b-302120add3bf"
+    },
+    {
+      "questionId": "1",
+      "comment": "hey i know the answer",
+      "username": "Marion Conroy",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2022-04-21T11:48:06.095Z",
+      "updatedAt": "2022-04-21T11:48:06.095Z",
+      "id": "b36e1588-c3b6-474e-9487-3cb72d6a894f"
+    },
+    {
+      "questionId": "1",
+      "comment": "hey you",
+      "username": "Claire Harvey",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2022-04-21T11:49:40.390Z",
+      "updatedAt": "2022-04-21T11:49:40.390Z",
+      "id": "6e9e369f-edcd-4dde-9f76-494b11f18c7c"
+    },
+    {
+      "questionId": "1",
+      "comment": "hey you",
+      "username": "Josh Herzog",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2022-04-21T11:49:54.217Z",
+      "updatedAt": "2022-04-21T11:49:54.217Z",
+      "id": "6e0f3d29-9394-4a0b-be50-b1bc3f58a966"
+    },
+    {
+      "questionId": "1",
+      "comment": "something",
+      "username": "Clyde Huel",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2022-04-21T11:50:19.538Z",
+      "updatedAt": "2022-04-21T11:50:19.538Z",
+      "id": "96ce8139-2a68-4d67-a758-2d780dfa6bc5"
+    },
+    {
+      "questionId": "1",
+      "comment": "another comment",
+      "username": "Miss Jonathon Denesik",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2022-04-21T12:56:24.663Z",
+      "updatedAt": "2022-04-21T12:56:24.663Z",
+      "id": "2d7359e5-2ce9-4313-af0e-0bd3a9d71257"
+    },
+    {
+      "questionId": "1",
+      "comment": "eh",
+      "username": "Stephen D'Amore DVM",
+      "likes": 1,
+      "dislikes": 1,
+      "createdAt": "2022-04-21T13:01:35.637Z",
+      "updatedAt": "2022-04-21T13:01:35.637Z",
+      "id": "1f31b8f0-6b57-4101-8026-46ba8eb97649"
     }
   ]
 }

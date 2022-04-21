@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux';
-import { matchPath } from 'react-router';
 import { RootActions } from '../root-actions';
 import { ActionTypes, QuestionParams } from './types';
 import { Rest } from '../../../services/rest';
@@ -8,6 +7,7 @@ import { Lists } from '../../reducers/lists/types';
 import { Routes } from '../../../routes/types';
 import { history } from '../../../App';
 import { error, loading, success } from '../loading';
+import { History } from '../../../utility/history';
 
 export function updateList(listName: string, data: {}[]) {
   return {
@@ -33,7 +33,7 @@ export function cleanList(listName: string) {
 function additionsInfo(listName: string) {
   switch (listName) {
     case Lists.COMMENTS:
-      const urlInfo = matchPath<QuestionParams>(history.location.pathname, { path: Routes.QUESTION });
+      const urlInfo = History.matchPath<QuestionParams>(history.location.pathname, Routes.QUESTION);
       return { questionId: urlInfo?.params?.id };
   }
 }

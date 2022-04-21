@@ -18,8 +18,8 @@ export interface Question {
 }
 
 export interface Comment {
-  id: number;
-  questionId: number;
+  id: string;
+  questionId: string;
   username: string;
   comment: string;
   likes: number;

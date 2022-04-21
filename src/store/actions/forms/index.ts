@@ -1,6 +1,13 @@
 import { Dispatch } from 'redux';
-import { Form } from '../../reducers/forms/types';
+import { formApis } from '../../../apis/forms';
+import { Forms } from '../../../forms/types';
+import { Comment } from '../../../model/comment';
+import { Rest } from '../../../services/rest';
+import { Form, Input } from '../../reducers/forms/types';
+import { Lists } from '../../reducers/lists/types';
 import { RootState } from '../../store';
+import { updateList } from '../lists';
+import { error, loading, success } from '../loading';
 import { RootActions } from '../root-actions';
 import { ActionTypes } from './types';
 
@@ -33,6 +40,58 @@ export function setForms(forms: Form[]) {
   };
 }
 
-export function onSubmit(form: string) {
-  return function (dispatch: Dispatch<RootActions>, state: () => RootState) {};
+function formOptimization(form: Input) {
+  const inputs: { [key: string]: unknown } = {};
+
+  for (const input in form) {
+    inputs[input] = form[input].value;
+  }
+
+  return inputs;
+}
+
+function beforeRequest(formName: string, state: RootState) {
+  switch (formName) {
+    default:
+      return formOptimization(state.forms.forms[formName]);
+  }
+}
+
+function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formName: string, data: unknown) {
+  switch (formName) {
+    // adding new comment to current list
+
+    case Forms.CREATE_NEW_COMMENT:
+      const commentList = state.lists.lists[Lists.COMMENTS].list;
+      commentList.push(data as Comment);
+      dispatch(updateList(Lists.COMMENTS, commentList));
+      break;
+  }
+}
+
+async function formRequestProcess(dispatch: Dispatch<RootActions>, state: RootState, formName: string) {
+  const optimizedForm = beforeRequest(formName, state);
+  const data = await Rest.req(formApis[formName](optimizedForm));
+  afterRequest(dispatch, state, formName, data);
+}
+
+export function onSubmit(formName: string) {
+  return async function (dispatch: Dispatch<RootActions>, rootState: () => RootState) {
+    try {
+      const state = rootState();
+
+      // prevent to sending new info when current request still is running
+      // or the form is invalid
+
+      if (state.loading.loadings[formName] || !state.forms.formValidation[formName]) {
+        return;
+      }
+
+      dispatch(loading(formName));
+      await formRequestProcess(dispatch, state, formName);
+      dispatch(success(formName));
+    } catch (err) {
+      dispatch(error(formName, (err as any).message));
+    }
+  };
 }
