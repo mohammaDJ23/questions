@@ -11,7 +11,7 @@ const CreateComment: FC = () => {
 
   return (
     <>
-      {form && !loading.loadings[Lists.COMMENTS] && (
+      {form && !loading.loadings[Lists.COMMENTS] && loading.loadings[Lists.COMMENTS] !== undefined && (
         <div dir="rtl">
           <div>
             <h3 className="text-xl font-bold">پاسخ خود را ثبت کنید</h3>

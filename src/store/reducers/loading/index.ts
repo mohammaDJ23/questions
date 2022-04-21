@@ -18,11 +18,7 @@ function loading(state: State, action: Loading) {
       [loading]: true,
     },
 
-    errors: {
-      ...state.errors,
-
-      [loading]: '',
-    },
+    errors: {},
   };
 }
 
@@ -58,11 +54,7 @@ function success(state: State, action: Success) {
       [loading]: false,
     },
 
-    errors: {
-      ...state.errors,
-
-      [loading]: '',
-    },
+    errors: {},
   };
 }
 

@@ -22,6 +22,7 @@ export function useQuestion() {
       setQuestion(question);
     } catch (err) {
       error(Items.QUESTION, (err as any).message);
+      history.push(Routes.QUESTIONS);
     }
   }, [loading, error, success]);
 
