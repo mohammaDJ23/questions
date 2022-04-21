@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useAction } from '../../hooks/use-actions';
 import { useState } from '../../hooks/use-state';
 import { Forms, Inputs } from '../../forms/types';
+import { Lists } from '../../store/reducers/lists/types';
 
 const CreateComment: FC = () => {
   const { onChange, onSubmit } = useAction();
@@ -10,7 +11,7 @@ const CreateComment: FC = () => {
 
   return (
     <>
-      {form && (
+      {form && !loading.loadings[Lists.COMMENTS] && (
         <div dir="rtl">
           <div>
             <h3 className="text-xl font-bold">پاسخ خود را ثبت کنید</h3>

@@ -86,6 +86,16 @@
       "createdAt": "2022-04-21T17:45:12.915Z",
       "updatedAt": "2022-04-21T17:45:12.915Z",
       "id": "568cea0e-abb5-41a7-b929-90463559e7d2"
+    },
+    {
+      "questionId": "93278cdc-5892-4307-8027-67d85e89febf",
+      "comment": "oasdiofjsdf\n\n\n",
+      "username": "Carol Jacobson",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2022-04-21T18:12:30.445Z",
+      "updatedAt": "2022-04-21T18:12:30.445Z",
+      "id": "e6276d60-c3ab-4421-8e89-2539aa8a3021"
     }
   ]
 }
