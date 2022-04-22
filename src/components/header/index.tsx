@@ -20,7 +20,7 @@ const Header: FC = () => {
                   <img src="/svgs/Arrow-down.svg" alt="arrow-down" />
                 </div>
 
-                <div className="flex justify-start items-center cursor-pointer" onClick={() => push('/questions')}>
+                <div className="flex justify-start items-center cursor-pointer" onClick={() => push(Routes.QUESTIONS)}>
                   <div className="flex-none w-28">
                     <span className="text-sm">مرضیه ابراهیمی</span>
                   </div>
