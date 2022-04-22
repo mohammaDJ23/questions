@@ -2,6 +2,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import paths from './routes';
 import { useError } from './hooks/use-error';
+import { Routes } from './routes/types';
 
 function App() {
   const {} = useError();
@@ -20,7 +21,7 @@ function App() {
           <Route key={i} exact path={path} component={component} />
         ))}
 
-        <Redirect to={'/questions'} />
+        <Redirect to={Routes.QUESTIONS} />
       </Switch>
     </>
   );
