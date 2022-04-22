@@ -5,7 +5,7 @@
     npm install
     npm run start
 
-It will run the project and the server simultaneously.
+It will run the client and the server simultaneously.
 
 ## Servers
 
