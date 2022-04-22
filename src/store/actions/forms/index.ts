@@ -97,11 +97,19 @@ function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formNam
     // adding new post to current list
 
     case Forms.CREATE_NEW_QUESTION:
-      const questionList = state.lists.lists[Lists.QUESTIONS].list;
-      questionList.unshift(data as Question);
-      dispatch(updateList(Lists.QUESTIONS, questionList));
-      dispatch(showModal(false));
+      if (history.location.pathname === Routes.QUESTIONS) {
+        const questionList = state.lists.lists[Lists.QUESTIONS].list;
+        questionList.unshift(data as Question);
+        dispatch(updateList(Lists.QUESTIONS, questionList));
+      } else {
+        // if the creation of the question was inside the question page
+        // redirec the user to questions page
+
+        history.push(Routes.QUESTIONS);
+      }
+
       dispatch(cleanForm(formName));
+      dispatch(showModal(false));
       break;
   }
 }
