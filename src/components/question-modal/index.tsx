@@ -5,7 +5,7 @@ import { useState } from '../../hooks/use-state';
 import Modal from '../modal';
 
 const QuestionModal = () => {
-  const { showModal, onSubmit, onChange } = useAction();
+  const { showModal, onSubmit, onChange, setFormInfo } = useAction();
   const { modal, forms, loading } = useState();
   const form = forms.forms[Forms.CREATE_NEW_QUESTION];
 
@@ -37,8 +37,9 @@ const QuestionModal = () => {
           <form
             onSubmit={event => {
               event.preventDefault();
-              onSubmit(Forms.CREATE_NEW_QUESTION);
+              onSubmit();
             }}
+            onFocus={event => setFormInfo(Forms.CREATE_NEW_QUESTION, event.target.name)}
             className="w-full"
           >
             <div className="mb-3 text-right" dir="rtl">
@@ -48,10 +49,11 @@ const QuestionModal = () => {
               <input
                 className="border-solid border-2 border-gray-100 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="topic"
+                name={Inputs.TOPIC}
                 value={form[Inputs.TOPIC].value}
                 type="text"
                 onChange={event => {
-                  onChange(Forms.CREATE_NEW_QUESTION, Inputs.TOPIC, event.target.value);
+                  onChange(event.target.value);
                 }}
               />
               <p className="text-red-500 text-xs italic">{form[Inputs.TOPIC].error}</p>
@@ -64,9 +66,10 @@ const QuestionModal = () => {
                 className="border-solid border-2 border-gray-100 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="question"
                 rows={3}
+                name={Inputs.QUESTION}
                 value={form[Inputs.QUESTION].value}
                 onChange={event => {
-                  onChange(Forms.CREATE_NEW_QUESTION, Inputs.QUESTION, event.target.value);
+                  onChange(event.target.value);
                 }}
               ></textarea>
               <p className="text-red-500 text-xs italic">{form[Inputs.QUESTION].error}</p>
@@ -76,7 +79,7 @@ const QuestionModal = () => {
               <button
                 onClick={event => {
                   event.preventDefault();
-                  onSubmit(Forms.CREATE_NEW_QUESTION);
+                  onSubmit();
                 }}
                 disabled={
                   !forms.formValidation[Forms.CREATE_NEW_QUESTION] || loading.loadings[Forms.CREATE_NEW_QUESTION]

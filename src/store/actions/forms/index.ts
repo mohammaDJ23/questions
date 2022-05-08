@@ -17,21 +17,23 @@ import { RootActions } from '../root-actions';
 import { ActionTypes, CleanForm, OnSubmit } from './types';
 import { showModal } from '../modal';
 
-export function submit(form: string): OnSubmit {
+export function setFormInfo(form: string, input: string) {
   return {
-    type: ActionTypes.ON_SUBMIT,
-    payload: {
-      form,
-    },
+    type: ActionTypes.SET_FORM_INFO,
+    payload: { form, input },
   };
 }
 
-export function onChange(form: string, input: string, value: unknown) {
+export function submit(): OnSubmit {
+  return {
+    type: ActionTypes.ON_SUBMIT,
+  };
+}
+
+export function onChange(value: unknown) {
   return {
     type: ActionTypes.ON_CHANGE,
     payload: {
-      form,
-      input,
       value,
     },
   };
@@ -46,10 +48,9 @@ export function setForms(forms: Form[]) {
   };
 }
 
-export function cleanForm(form: string): CleanForm {
+export function cleanForm(): CleanForm {
   return {
     type: ActionTypes.CLEAN_FORM,
-    payload: { form },
   };
 }
 
@@ -63,10 +64,10 @@ function getInputs(form: Input) {
   return inputs;
 }
 
-function beforeRequest(dispatch: Dispatch<RootActions>, state: RootState, formName: string) {
-  const inputs = getInputs(state.forms.forms[formName]);
+function beforeRequest(dispatch: Dispatch<RootActions>, state: RootState) {
+  const inputs = getInputs(state.forms.forms[state.forms.currentForm]);
 
-  switch (formName) {
+  switch (state.forms.currentForm) {
     // getting new comment and merging with addintion infos
 
     case Forms.CREATE_NEW_COMMENT:
@@ -83,15 +84,15 @@ function beforeRequest(dispatch: Dispatch<RootActions>, state: RootState, formNa
   }
 }
 
-function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formName: string, data: unknown) {
-  switch (formName) {
+function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, data: unknown) {
+  switch (state.forms.currentForm) {
     // adding new comment to current list
 
     case Forms.CREATE_NEW_COMMENT:
       const commentList = state.lists.lists[Lists.COMMENTS].list;
       commentList.unshift(data as Comment);
       dispatch(updateList(Lists.COMMENTS, commentList));
-      dispatch(cleanForm(formName));
+      dispatch(cleanForm());
       break;
 
     // adding new post to current list
@@ -108,35 +109,35 @@ function afterRequest(dispatch: Dispatch<RootActions>, state: RootState, formNam
         history.push(Routes.QUESTIONS);
       }
 
-      dispatch(cleanForm(formName));
+      dispatch(cleanForm());
       dispatch(showModal(false));
       break;
   }
 }
 
-async function formRequestProcess(dispatch: Dispatch<RootActions>, state: RootState, formName: string) {
-  const formInfo = beforeRequest(dispatch, state, formName);
-  const data = await Rest.req(formApis[formName](formInfo));
-  afterRequest(dispatch, state, formName, data);
+async function formRequestProcess(dispatch: Dispatch<RootActions>, state: RootState) {
+  const formInfo = beforeRequest(dispatch, state);
+  const data = await Rest.req(formApis[state.forms.currentForm](formInfo));
+  afterRequest(dispatch, state, data);
 }
 
-export function onSubmit(formName: string) {
+export function onSubmit() {
   return async function (dispatch: Dispatch<RootActions>, rootState: () => RootState) {
-    try {
-      const state = rootState();
+    const state = rootState();
 
+    try {
       // prevent to sending new info when current request still is running
       // or the form is invalid
 
-      if (state.loading.loadings[formName] || !state.forms.formValidation[formName]) {
+      if (state.loading.loadings[state.forms.currentForm] || !state.forms.formValidation[state.forms.currentForm]) {
         return;
       }
 
-      dispatch(loading(formName));
-      await formRequestProcess(dispatch, state, formName);
-      dispatch(success(formName));
+      dispatch(loading(state.forms.currentForm));
+      await formRequestProcess(dispatch, state);
+      dispatch(success(state.forms.currentForm));
     } catch (err) {
-      dispatch(error(formName, (err as any).message));
+      dispatch(error(state.forms.currentForm, (err as any).message));
     }
   };
 }

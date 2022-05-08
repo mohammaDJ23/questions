@@ -5,7 +5,7 @@ import { Forms, Inputs } from '../../forms/types';
 import { Lists } from '../../store/reducers/lists/types';
 
 const CreateComment: FC = () => {
-  const { onChange, onSubmit } = useAction();
+  const { onChange, onSubmit, setFormInfo } = useAction();
   const { forms, loading } = useState();
   const form = forms.forms[Forms.CREATE_NEW_COMMENT];
 
@@ -23,8 +23,9 @@ const CreateComment: FC = () => {
             <form
               onSubmit={event => {
                 event.preventDefault();
-                onSubmit(Forms.CREATE_NEW_COMMENT);
+                onSubmit();
               }}
+              onFocus={event => setFormInfo(Forms.CREATE_NEW_COMMENT, event.target.name)}
             >
               <div>
                 <div className="mb-6 text-right" dir="rtl">
@@ -34,10 +35,11 @@ const CreateComment: FC = () => {
                   <textarea
                     className="border-solid border-2 border-gray-100 rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="replay"
+                    name={Inputs.COMMENT}
                     rows={10}
                     value={form[Inputs.COMMENT].value}
                     onChange={event => {
-                      onChange(Forms.CREATE_NEW_COMMENT, Inputs.COMMENT, event.target.value);
+                      onChange(event.target.value);
                     }}
                   ></textarea>
                   <p className="text-red-500 text-xs italic">{form[Inputs.COMMENT].error}</p>

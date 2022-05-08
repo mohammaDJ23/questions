@@ -5,20 +5,16 @@ export enum ActionTypes {
   ON_SUBMIT = 'ON_SUBMIT',
   SET_FORMS = 'SET_FORMS',
   CLEAN_FORM = 'CLEAN_FORM',
+  SET_FORM_INFO = 'SET_FORM_INFO',
 }
 
 export interface OnSubmit {
   type: ActionTypes.ON_SUBMIT;
-  payload: {
-    form: string;
-  };
 }
 
 export interface OnChange {
   type: ActionTypes.ON_CHANGE;
   payload: {
-    form: string;
-    input: string;
     value: string;
   };
 }
@@ -32,9 +28,14 @@ export interface SetForms {
 
 export interface CleanForm {
   type: ActionTypes.CLEAN_FORM;
+}
+
+export interface SetFormInfo {
+  type: ActionTypes.SET_FORM_INFO;
   payload: {
     form: string;
+    input: string;
   };
 }
 
-export type Actions = OnChange | OnSubmit | SetForms | CleanForm;
+export type Actions = OnChange | OnSubmit | SetForms | CleanForm | SetFormInfo;

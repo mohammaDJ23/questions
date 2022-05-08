@@ -14,6 +14,9 @@ export interface State {
   formValidation: {
     [key: string]: boolean;
   };
+
+  currentForm: string;
+  currentInput: string;
 }
 
 export type Form = State['forms'];

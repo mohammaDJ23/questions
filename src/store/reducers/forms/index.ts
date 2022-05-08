@@ -1,15 +1,17 @@
 import { inputValidation, isFormValid } from '../../../utility/validations';
-import { Actions, ActionTypes, CleanForm, OnChange, OnSubmit, SetForms } from '../../actions/forms/types';
+import { Actions, ActionTypes, OnChange, OnSubmit, SetFormInfo, SetForms } from '../../actions/forms/types';
 import { State } from './types';
 
 const initialState: State = {
   forms: {},
   formValidation: {},
+  currentForm: '',
+  currentInput: '',
 };
 
 function onChange(state: State, action: OnChange) {
-  const { form, input, value } = action.payload;
-  const { error, isValid } = inputValidation(form, input, value);
+  const { value } = action.payload;
+  const { error, isValid } = inputValidation(state.currentForm, state.currentInput, value);
 
   const newState = {
     ...state,
@@ -17,11 +19,11 @@ function onChange(state: State, action: OnChange) {
     forms: {
       ...state.forms,
 
-      [form]: {
-        ...state.forms[form],
+      [state.currentForm]: {
+        ...state.forms[state.currentForm],
 
-        [input]: {
-          ...state.forms[form][input],
+        [state.currentInput]: {
+          ...state.forms[state.currentForm][state.currentInput],
 
           value,
           error,
@@ -31,7 +33,7 @@ function onChange(state: State, action: OnChange) {
     },
   };
 
-  newState.formValidation[form] = isFormValid(newState.forms[form]);
+  newState.formValidation[state.currentForm] = isFormValid(newState.forms[state.currentForm]);
 
   return newState;
 }
@@ -67,19 +69,31 @@ function getPlainValue(value: unknown) {
     : null;
 }
 
-function cleanForm(state: State, action: CleanForm) {
-  const { form } = action.payload;
+function cleanForm(state: State) {
   const newState = { ...state };
 
-  for (const input in newState.forms[form]) {
-    newState.forms[form][input].value = getPlainValue(newState.forms[form][input].value);
-    newState.forms[form][input].isValid = false;
-    newState.forms[form][input].error = '';
+  for (const input in newState.forms[newState.currentForm]) {
+    newState.forms[newState.currentForm][input].value = getPlainValue(
+      newState.forms[newState.currentForm][input].value,
+    );
+
+    newState.forms[newState.currentForm][input].isValid = false;
+    newState.forms[newState.currentForm][input].error = '';
   }
 
-  newState.formValidation[form] = false;
+  newState.formValidation[newState.currentForm] = false;
 
   return newState;
+}
+
+function setFormInfo(state: State, action: SetFormInfo) {
+  const { form, input } = action.payload;
+
+  return {
+    ...state,
+    currentForm: form,
+    currentInput: input,
+  };
 }
 
 export function formReducer(state: State = initialState, action: Actions) {
@@ -94,7 +108,10 @@ export function formReducer(state: State = initialState, action: Actions) {
       return setForms(state, action);
 
     case ActionTypes.CLEAN_FORM:
-      return cleanForm(state, action);
+      return cleanForm(state);
+
+    case ActionTypes.SET_FORM_INFO:
+      return setFormInfo(state, action);
 
     default:
       return state;
